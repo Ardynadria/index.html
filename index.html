@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mental y Discapacidades Invisibles - Guía de Apoyo</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4a90e2;
+            --secondary: #5b6dcd;
+            --accent: #6c5ce7;
+            --light: #f9f9f9;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #666;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header y navegación */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(74, 144, 226, 0.8), rgba(91, 109, 205, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234a90e2" opacity="0.1"/><path d="M0 0L100 100" stroke="%234a90e2" stroke-width="1" opacity="0.2"/></svg>');
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Secciones de contenido */
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #e6e6e6;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.8rem 0 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3 i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        /* Estadísticas */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        
+        .stat-card {
+            background: #f3f7fd;
+            border-left: 5px solid var(--primary);
+            padding: 1.8rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin-left: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        /* Recursos */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .resource-card {
+            background: #f8f9fa;
+            padding: 1.8rem;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .resource-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-card h4 i {
+            margin-right: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Mensaje de emergencia */
+        .emergency-alert {
+            background: #ffeaa7;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 5px solid #fdcb6e;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: #e17055;
+        }
+        
+        /* Tipos de discapacidades */
+        .disability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .disability-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .disability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .disability-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--primary);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.8rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 1.8rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links li {
+                margin: 0.5rem 0;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* Iconos */
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        /* Progreso de desplazamiento */
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: #f1f1f1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 101;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-brain logo-icon"></i>
+                    <span>SaludMental+</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#problema"><i class="fas fa-question-circle icon"></i>El Problema</a></li>
+                    <li><a href="#datos"><i class="fas fa-chart-bar icon"></i>Datos</a></li>
+                    <li><a href="#discapacidades"><i class="fas fa-eye-slash icon"></i>Discapacidades</a></li>
+                    <li><a href="#medidas"><i class="fas fa-hands-helping icon"></i>Medidas</a></li>
+                    <li><a href="#recursos"><i class="fas fa-life-ring icon"></i>Recursos</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Salud Mental y Discapacidades Invisibles</h1>
+            <p>Una guía completa para comprender, apoyar y tomar acción frente a estos desafíos que afectan a millones de personas en todo el mundo.</p>
+            <a href="#problema" class="btn">Conocer Más</a>
+        </section>
+
+        <section id="problema">
+            <h2><i class="fas fa-question-circle"></i>Comprendiendo el Problema</h2>
+            <p>Las discapacidades invisibles son condiciones que no son inmediatamente aparentes para los demás, pero que pueden tener un impacto significativo en la vida diaria de quienes las experimentan. Estas incluyen condiciones de salud mental como depresión, ansiedad, trastorno bipolar, TEPT y TOC, así como condiciones físicas como fatiga crónica, fibromialgia y muchas otras.</p>
+            
+            <p>El estigma y la incomprensión social hacia estas condiciones a menudo agravan los desafíos que enfrentan las personas afectadas. Muchas veces, las personas con discapacidades invisibles son juzgadas mal o acusadas de "fingir" porque "no parecen discapacitadas".</p>
+            
+            <div class="emergency-alert">
+                <div class="emergency-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <h3>⚠️ Ayuda Inmediata</h3>
+                    <p>Si usted o alguien que conoce está pasando por una crisis de salud mental, contacte a la Línea de Prevención del Suicidio y Crisis al <strong>988</strong> (Estados Unidos) o busque ayuda profesional inmediatamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="datos">
+            <h2><i class="fas fa-chart-bar"></i>Datos y Estadísticas Globales</h2>
+            <p>La magnitud del desafío de salud mental a nivel mundial es abrumadora y requiere atención urgente. Según la Organización Mundial de la Salud (OMS) y la Organización Panamericana de la Salud (OPS):</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1+ billón</div>
+                    <p>de personas viven con trastornos de salud mental en todo el mundo (OMS).</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">$1 billón</div>
+                    <p>es el costo anual estimado para la economía global solo por depresión y ansiedad (OMS).</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">727,000</div>
+                    <p>personas murieron por suicidio en 2021, una de las principales causas de muerte entre jóvenes (OMS).</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">2%</div>
+                    <p>es el promedio del gasto público en salud mental a nivel global, porcentaje que no ha variado desde 2017 (OMS/OPS).</p>
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-globe-americas"></i>Disparidades Globales</h3>
+            <p>Existen marcadas disparidades entre países: mientras los países de ingresos altos gastan USD 65 por persona en salud mental, los de ingresos bajos dedican apenas USD 0.04 (OMS).</p>
+            
+            <h3><i class="fas fa-clipboard-list"></i>Brecha de Tratamiento en América Latina</h3>
+            <p>En América Latina y el Caribe, la brecha de tratamiento es de 77.9% para trastornos de ansiedad y afectivos, y de 73.9% para la depresión (OPS).</p>
+        </section>
+
+        <section id="discapacidades">
+            <h2><i class="fas fa-eye-slash"></i>¿Qué son las Discapacidades Invisibles?</h2>
+            <p>Las discapacidades invisibles son condiciones que limitan sustancialmente las actividades de la vida diaria pero que no son aparentes para los demás. El hecho de que una discapacidad no sea visible no significa que no sea real.</p>
+            
+            <div class="disability-grid">
+                <div class="disability-card">
+                    <div class="disability-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Salud Mental</h4>
+                    <p>Depresión, ansiedad, trastorno bipolar, TEPT, TOC y otros trastornos psicológicos.</p>
+                </div>
+                
+                <div class="disability-card">
+                    <div class="disability-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h4>Dolor Crónico</h4>
+                    <p>Fibromialgia, artritis reumatoide, migrañas crónicas y otras condiciones dolorosas.</p>
+                </div>
+                
+                <div class="disability-card">
+                    <div class="disability-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h4>Fatiga Crónica</h4>
+                    <p>Síndrome de fatiga crónica, que causa agotamiento extremo no relacionado con la actividad.</p>
+                </div>
+                
+                <div class="disability-card">
+                    <div class="disability-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4>Condiciones Médicas</h4>
+                    <p>Diabetes, lupus, esclerosis múltiple y otras enfermedades autoinmunes.</p>
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-exclamation-triangle"></i>El Reto de las Discapacidades Invisibles</h3>
+            <p>Las personas con estas condiciones son frecuentemente juzgadas o malinterpretadas, ya que pueden "parecer saludables" por fuera mientras lidian con síntomas debilitantes en su interior. Esto puede llevar a:</p>
+            <ul>
+                <li>Falta de comprensión y apoyo por parte de familiares, amigos y empleadores</li>
+                <li>Dificultad para obtener adaptaciones necesarias en el trabajo o la escuela</li>
+                <li>Estigma social y discriminación</li>
+                <li>Minimización de sus síntomas y experiencias</li>
+            </ul>
+        </section>
+
+        <section id="medidas">
+            <h2><i class="fas fa-hands-helping"></i>Medidas de Apoyo y Acción</h2>
+            <p>Todos podemos tomar medidas para apoyar a las personas que viven con condiciones de salud mental y discapacidades invisibles:</p>
+            
+            <h3><i class="fas fa-book-reader"></i>1. Educarse y Sensibilizarse</h3>
+            <ul>
+                <li>Aprenda sobre las diferentes condiciones de salud mental y discapacidades invisibles</li>
+                <li>Comprenda que el hecho de que una discapacidad no sea visible no significa que no sea real</li>
+                <li>Comparta información precisa para combatir el estigma</li>
+                <li>Cuestiona tus propios prejuicios y suposiciones sobre las discapacidades</li>
+            </ul>
+            
+            <h3><i class="fas fa-users"></i>2. Crear Entornos Inclusivos</h3>
+            <ul>
+                <li>Ofrezca flexibilidad en entornos laborales y educativos cuando sea posible</li>
+                <li>Evite hacer juicios basados en apariencias</li>
+                <li>Diseñe espacios y actividades considerando diversas necesidades</li>
+                <li>Implemente políticas de bienestar mental en el lugar de trabajo</li>
+            </ul>
+            
+            <h3><i class="fas fa-comments"></i>3. Comunicación y Apoyo</h3>
+            <ul>
+                <li>Escuche activamente sin juzgar</li>
+                <li>Pregunte cómo puede ayudar en lugar de asumir</li>
+                <li>Utilice un lenguaje respetuoso y no estigmatizante</li>
+                <li>Valide las experiencias y emociones de las personas</li>
+                <li>Ofrezca apoyo práctico cuando sea posible</li>
+            </ul>
+            
+            <h3><i class="fas fa-heart"></i>4. Apoyar el Autocuidado</h3>
+            <p>El autocuidado es fundamental para la salud mental:</p>
+            <ul>
+                <li><strong>Ejercicio regular:</strong> Tan solo 30 minutos de caminata diaria pueden mejorar el estado de ánimo</li>
+                <li><strong>Sueño adecuado:</strong> Establezca un horario regular y asegure la calidad del descanso</li>
+                <li><strong>Alimentación balanceada:</strong> Una buena nutrición mejora el estado de ánimo y reduce el estrés</li>
+                <li><strong>Práctica de gratitud:</strong> Reconocer aspectos positivos diariamente</li>
+                <li><strong>Conexión social:</strong> Mantener relaciones significativas con otros</li>
+                <li><strong>Técnicas de relajación:</strong> Meditación, respiración profunda o mindfulness</li>
+            </ul>
+            
+            <h3><i class="fas fa-balance-scale"></i>5. Abogar por Cambios Sistémicos</h3>
+            <ul>
+                <li>Abogue por políticas que prioricen la salud mental</li>
+                <li>Apoye legislación que proteja los derechos de personas con discapacidades</li>
+                <li>Promueva mayor inversión en servicios de salud mental</li>
+                <li>Fomente la integración de salud mental en la atención primaria</li>
+                <li>Participe en campañas de concientización sobre salud mental</li>
+            </ul>
+        </section>
+
+        <section id="recursos">
+            <h2><i class="fas fa-life-ring"></i>Recursos de Ayuda y Apoyo</h2>
+            <p>Si usted o alguien que conoce necesita ayuda, estos recursos pueden ser útiles:</p>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4><i class="fas fa-phone-alt"></i>Líneas de Crisis</h4>
+                    <p><strong>Línea de Prevención del Suicidio y Crisis:</strong> Marque o envíe un mensaje al 988 (Estados Unidos). También tiene un chat en vivo en 988lifeline.org. Es un servicio confidencial, gratuito y disponible 24/7.</p>
+                    <p><strong>Línea de Texto de Crisis:</strong> Envíe un mensaje de texto con la palabra "HOME" al 741741.</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h4><i class="fas fa-hands-helping"></i>Organizaciones de Apoyo</h4>
+                    <p><strong>Alianza Nacional de Enfermedades Mentales (NAMI):</strong> Ofrece defensa, educación y apoyo para personas con problemas de salud mental y sus familias.</p>
+                    <p><strong>Proyecto Discapacidad Invisible:</strong> Un proyecto educativo que ofrece recursos y grupos de apoyo, centrándose en las intersecciones de raza, clase, género y sexualidad.</p>
+                    <p><strong>The Mighty:</strong> Comunidad y recursos sobre diversas condiciones de salud.</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h4><i class="fas fa-globe"></i>Recursos Internacionales</h4>
+                    <p><strong>Organización Mundial de la Salud (OMS):</strong> Información y recursos globales sobre salud mental.</p>
+                    <p><strong>Instituto Nacional de la Salud Mental (NIMH):</strong> Recursos educativos y de tratamiento.</p>
+                    <p><strong>Mental Health Europe:</strong> Red paneuropea que trabaja para promover la salud mental positiva.</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h4><i class="fas fa-user-md"></i>Autocuidado y Bienestar</h4>
+                    <p><strong>MedlinePlus:</strong> Guías sobre cómo mejorar la salud mental.</p>
+                    <p><strong>NIH Herramientas de bienestar:</strong> Estrategias para mejorar la salud emocional.</p>
+                    <p><strong>Centros para el Control y Prevención de Enfermedades (CDC):</strong> Recursos sobre manejo del estrés y salud mental.</p>
+                </div>
+            </div>
+            
+            <div class="emergency-alert">
+                <div class="emergency-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div>
+                    <h3>Recuerda</h3>
+                    <p>Buscar ayuda es una muestra de fortaleza, no de debilidad. El tratamiento adecuado puede marcar una diferencia significativa en la calidad de vida. Si está experimentando una emergencia médica, llame a los servicios de emergencia locales inmediatamente.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-brain"></i> SaludMental+
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#problema">El Problema</a></li>
+                    <li><a href="#datos">Datos</a></li>
+                    <li><a href="#discapacidades">Discapacidades</a></li>
+                    <li><a href="#medidas">Medidas</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                </ul>
+                <p class="copyright">© 2023 SaludMental+ - Esta página es solo para fines informativos. Consulte a un profesional de la salud para diagnóstico y tratamiento.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para el menú responsive
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace (en dispositivos móviles)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Barra de progreso de desplazamiento
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+        
+        // Animación suave al hacer clic en enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
