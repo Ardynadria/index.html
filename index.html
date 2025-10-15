@@ -14,22 +14,25 @@
         }
         
         :root {
-            --primary: #4a90e2;
-            --secondary: #5b6dcd;
-            --accent: #6c5ce7;
-            --light: #f9f9f9;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #666;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --danger: #e74c3c;
+            --primary: #1565c0;
+            --secondary: #1976d2;
+            --accent: #0d47a1;
+            --light: #f8f9fa;
+            --dark: #1a237e;
+            --text: #1a237e;
+            --text-light: #283593;
+            --text-on-dark: #e3f2fd;
+            --success: #2e7d32;
+            --warning: #f57c00;
+            --danger: #c62828;
+            --card-bg: #ffffff;
+            --section-bg: #ffffff;
         }
         
         body {
             line-height: 1.6;
             color: var(--text);
-            background-color: var(--light);
+            background-color: #f0f4f8;
         }
         
         .container {
@@ -42,7 +45,7 @@
         /* Header y navegación */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
+            color: var(--text-on-dark);
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -78,7 +81,7 @@
         }
         
         .nav-links a {
-            color: white;
+            color: var(--text-on-dark);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -93,7 +96,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: white;
+            background-color: var(--text-on-dark);
             transition: width 0.3s ease;
         }
         
@@ -103,11 +106,11 @@
         
         /* Hero section */
         .hero {
-            background: linear-gradient(rgba(74, 144, 226, 0.8), rgba(91, 109, 205, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234a90e2" opacity="0.1"/><path d="M0 0L100 100" stroke="%234a90e2" stroke-width="1" opacity="0.2"/></svg>');
+            background: linear-gradient(rgba(21, 101, 192, 0.85), rgba(25, 118, 210, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231565c0" opacity="0.1"/><path d="M0 0L100 100" stroke="%231565c0" stroke-width="1" opacity="0.2"/></svg>');
             padding: 5rem 0;
             text-align: center;
             margin-bottom: 2rem;
-            color: white;
+            color: var(--text-on-dark);
             border-radius: 0 0 20px 20px;
         }
         
@@ -125,7 +128,7 @@
         
         .btn {
             display: inline-block;
-            background: white;
+            background: var(--text-on-dark);
             color: var(--primary);
             padding: 0.8rem 1.8rem;
             border-radius: 50px;
@@ -140,11 +143,12 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
         }
         
         /* Secciones de contenido */
         section {
-            background: white;
+            background: var(--section-bg);
             border-radius: 15px;
             padding: 2.5rem;
             margin-bottom: 2.5rem;
@@ -186,6 +190,17 @@
             color: var(--text-light);
         }
         
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
         /* Estadísticas */
         .stats-grid {
             display: grid;
@@ -195,12 +210,13 @@
         }
         
         .stat-card {
-            background: #f3f7fd;
+            background: #e3f2fd;
             border-left: 5px solid var(--primary);
             padding: 1.8rem;
             border-radius: 10px;
             transition: all 0.3s ease;
             text-align: center;
+            color: var(--text);
         }
         
         .stat-card:hover {
@@ -240,6 +256,7 @@
             border-radius: 10px;
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
+            color: var(--text);
         }
         
         .resource-card:hover {
@@ -261,7 +278,7 @@
         /* Footer */
         footer {
             background: var(--dark);
-            color: white;
+            color: var(--text-on-dark);
             text-align: center;
             padding: 3rem 0;
             margin-top: 4rem;
@@ -290,35 +307,36 @@
         }
         
         .footer-links a {
-            color: white;
+            color: var(--text-on-dark);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: var(--primary);
+            color: #bbdefb;
         }
         
         .copyright {
             font-size: 0.9rem;
-            color: #e6e6e6;
+            color: #bbdefb;
         }
         
         /* Mensaje de emergencia */
         .emergency-alert {
-            background: #ffeaa7;
+            background: #fff3e0;
             padding: 1.5rem;
             border-radius: 10px;
             margin: 2rem 0;
-            border-left: 5px solid #fdcb6e;
+            border-left: 5px solid #ff9800;
             display: flex;
             align-items: center;
+            color: #5d4037;
         }
         
         .emergency-icon {
             font-size: 2rem;
             margin-right: 1rem;
-            color: #e17055;
+            color: #e65100;
         }
         
         /* Tipos de discapacidades */
@@ -335,6 +353,7 @@
             border-radius: 10px;
             text-align: center;
             transition: all 0.3s ease;
+            color: var(--text);
         }
         
         .disability-card:hover {
@@ -426,137 +445,140 @@
             width: 0%;
             transition: width 0.3s ease;
         }
-  .mental-health-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fbff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(70, 130, 180, 0.1);
-}
+        
+        /* Formulario de contacto */
+        .mental-health-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fbff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(70, 130, 180, 0.1);
+        }
 
-/* ===== Títulos y subtítulos ===== */
-.section-title {
-  text-align: center;
-  color: #2c5d94;
-  margin-bottom: 5px;
-}
+        .section-title {
+            text-align: center;
+            color: #2c5d94;
+            margin-bottom: 5px;
+        }
 
-.section-subtitle {
-  text-align: center;
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-}
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
 
-/* ===== Formulario ===== */
-.custom-form .form-label {
-  font-weight: 600;
-  color: #2c5d94;
-}
+        .custom-form .form-label {
+            font-weight: 600;
+            color: #2c5d94;
+        }
 
-/* Campos de entrada con tamaño fijo */
-.custom-form .form-control {
-  width: 400px;
-  max-width: 100%;
-  height: 40px;
-  padding: 8px 12px;
-  border: 1px solid #a3c4dc;
-  border-radius: 5px;
-  background-color: #f5faff;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
+        .custom-form .form-control {
+            width: 400px;
+            max-width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid #a3c4dc;
+            border-radius: 5px;
+            background-color: #f5faff;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            color: var(--text);
+        }
 
-/* Estilo del textarea */
-.custom-form textarea.form-control {
-  height: 100px;
-  resize: none;
-}
+        .custom-form textarea.form-control {
+            height: 100px;
+            resize: none;
+        }
 
-/* Estilo en foco */
-.custom-form .form-control:focus {
-  border-color: #2c5d94;
-  outline: none;
-  background-color: #ffffff;
-}
+        .custom-form .form-control:focus {
+            border-color: #2c5d94;
+            outline: none;
+            background-color: #ffffff;
+        }
 
-/* Botón activado */
-.custom-submit-btn {
-  background-color: #2c5d94;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-  opacity: 1;
-  transition: background-color 0.3s ease;
-}
+        .custom-submit-btn {
+            background-color: #2c5d94;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            opacity: 1;
+            transition: background-color 0.3s ease;
+        }
 
-.custom-submit-btn:hover {
-  background-color: #1e3f6b;
-}
+        .custom-submit-btn:hover {
+            background-color: #1e3f6b;
+        }
 
-.note {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 5px;
-}
+        .note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 5px;
+        }
 
-/* ===== Tabla ===== */
-.custom-table-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
+        .custom-table-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
 
-.custom-blue-table {
-  border-collapse: collapse;
-  min-width: 500px;
-  max-width: 100%;
-  background-color: #f0f8ff;
-  border: 2px solid #4682b4;
-  box-shadow: 0 0 10px rgba(70, 130, 180, 0.2);
-  font-family: Arial, sans-serif;
-  font-size: 0.95rem;
-}
+        .custom-blue-table {
+            border-collapse: collapse;
+            min-width: 500px;
+            max-width: 100%;
+            background-color: #f0f8ff;
+            border: 2px solid #4682b4;
+            box-shadow: 0 0 10px rgba(70, 130, 180, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+        }
 
-.custom-blue-table th,
-.custom-blue-table td {
-  border: 1px solid #87cefa;
-  padding: 10px 15px;
-  text-align: left;
-  min-width: 100px;
-  max-width: 150px;
-  word-break: break-word;
-}
+        .custom-blue-table th,
+        .custom-blue-table td {
+            border: 1px solid #87cefa;
+            padding: 10px 15px;
+            text-align: left;
+            min-width: 100px;
+            max-width: 150px;
+            word-break: break-word;
+            color: var(--text);
+        }
 
-.custom-blue-table th {
-  background-color: #4682b4;
-  color: white;
-}
+        .custom-blue-table th {
+            background-color: #4682b4;
+            color: white;
+        }
 
-.custom-blue-table tbody tr:nth-child(even) {
-  background-color: #e6f2ff;
-}
+        .custom-blue-table tbody tr:nth-child(even) {
+            background-color: #e6f2ff;
+        }
 
-.custom-blue-table tbody tr:hover {
-  background-color: #d0e7ff;
-}
+        .custom-blue-table tbody tr:hover {
+            background-color: #d0e7ff;
+        }
 
-/* Mensaje de confirmación */
-.confirmation-message {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 15px;
-  text-align: center;
-  display: none;
-}
+        .confirmation-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+            display: none;
+        }
+        
+        .source-link {
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            display: block;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -605,42 +627,49 @@
                 </div>
                 <div>
                     <h3>⚠️ Ayuda Inmediata</h3>
-                     <p>Si usted o alguien que conoce está pasando por una crisis de salud mental, contacte a la Línea de Prevención del Suicidio y Crisis al <strong>800 911 2000</strong> (México) o busque ayuda profesional inmediatamente.</p>
+                    <p>Si usted o alguien que conoce está pasando por una crisis de salud mental, contacte a la <strong>Línea de la Vida</strong> al <a href="tel:8009112000"><strong>800 911 2000</strong></a> (México) o busque ayuda profesional inmediatamente.</p>
+                    <a href="https://www.gob.mx/salud/articulos/linea-de-la-vida-800-911-2000" target="_blank" class="source-link">Fuente: Secretaría de Salud México</a>
                 </div>
             </div>
         </section>
 
         <section id="datos">
             <h2><i class="fas fa-chart-bar"></i>Datos y Estadísticas Globales</h2>
-            <p>La magnitud del desafío de salud mental a nivel mundial es abrumadora y requiere atención urgente. Según la Organización Mundial de la Salud (OMS) y la Organización Panamericana de la Salud (OPS):</p>
+            <p>La magnitud del desafío de salud mental a nivel mundial es abrumadora y requiere atención urgente. Según la Organización Mundial de la Salud (OMS) y estudios recientes:</p>
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">1+ billón</div>
-                    <p>de personas viven con trastornos de salud mental en todo el mundo (OMS).</p>
+                    <div class="stat-number">970M</div>
+                    <p>personas vivían con un trastorno mental en 2019</p>
+                    <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" class="source-link">Fuente: OMS, 2022</a>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-number">$1 billón</div>
-                    <p>es el costo anual estimado para la economía global solo por depresión y ansiedad (OMS).</p>
+                    <div class="stat-number">+25%</div>
+                    <p>aumento en la prevalencia de ansiedad y depresión durante la pandemia</p>
+                    <a href="https://www.who.int/news/item/02-03-2022-covid-19-pandemic-triggers-25-increase-in-prevalence-of-anxiety-and-depression-worldwide" target="_blank" class="source-link">Fuente: OMS, 2022</a>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-number">727,000</div>
-                    <p>personas murieron por suicidio en 2021, una de las principales causas de muerte entre jóvenes (OMS).</p>
+                    <div class="stat-number">1 cada 8</div>
+                    <p>personas en el mundo vive con un trastorno mental</p>
+                    <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" class="source-link">Fuente: OMS, 2022</a>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-number">2%</div>
-                    <p>es el promedio del gasto público en salud mental a nivel global, porcentaje que no ha variado desde 2017 (OMS/OPS).</p>
+                    <div class="stat-number"><2%</div>
+                    <p>del presupuesto de salud se destina a salud mental en países de ingresos medios-bajos</p>
+                    <a href="https://www.who.int/publications/i/item/9789240049338" target="_blank" class="source-link">Fuente: OMS Atlas, 2021</a>
                 </div>
             </div>
             
             <h3><i class="fas fa-globe-americas"></i>Disparidades Globales</h3>
-            <p>Existen marcadas disparidades entre países: mientras los países de ingresos altos gastan USD 65 por persona en salud mental, los de ingresos bajos dedican apenas USD 0.04 (OMS).</p>
+            <p>Existen marcadas disparidades entre países: mientras los países de ingresos altos gastan más de USD 60 por persona en salud mental, los de ingresos bajos dedican menos de USD 2.</p>
+            <a href="https://www.who.int/publications/i/item/9789240049338" target="_blank" class="source-link">Fuente: OMS Mental Health Atlas 2021</a>
             
             <h3><i class="fas fa-clipboard-list"></i>Brecha de Tratamiento en América Latina</h3>
-            <p>En América Latina y el Caribe, la brecha de tratamiento es de 77.9% para trastornos de ansiedad y afectivos, y de 73.9% para la depresión (OPS).</p>
+            <p>En América Latina y el Caribe, la brecha de tratamiento para trastornos mentales supera el 70%, lo que significa que la mayoría de las personas no reciben la atención que necesitan.</p>
+            <a href="https://iris.paho.org/handle/10665.2/50321" target="_blank" class="source-link">Fuente: OPS, 2020</a>
         </section>
 
         <section id="discapacidades">
@@ -689,6 +718,7 @@
                 <li>Estigma social y discriminación</li>
                 <li>Minimización de sus síntomas y experiencias</li>
             </ul>
+            <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" class="source-link">Fuente: OMS - Trastornos Mentales</a>
         </section>
 
         <section id="medidas">
@@ -739,6 +769,7 @@
                 <li>Fomente la integración de salud mental en la atención primaria</li>
                 <li>Participe en campañas de concientización sobre salud mental</li>
             </ul>
+            <a href="https://www.who.int/publications/i/item/9789240049338" target="_blank" class="source-link">Fuente: OMS - Guía de Intervención para Trastornos Mentales</a>
         </section>
 
         <section id="recursos">
@@ -747,30 +778,35 @@
             
             <div class="resource-grid">
                 <div class="resource-card">
-                    <h4><i class="fas fa-phone-alt"></i>Líneas de Crisis</h4>
-                    <p><strong>Línea de Prevención del Suicidio y Crisis:</strong> Marque o envíe un mensaje al 911 (México). O 988 (Estados Unidos), también tiene un chat en vivo en 988lifeline.org. Es un servicio confidencial, gratuito y disponible 24/7.</p>
-                    <p><strong>Línea de Texto de Crisis:</strong> Envíe un mensaje de texto a la línea de la vida al 800 911 2000.</p>
+                    <h4><i class="fas fa-phone-alt"></i>Líneas de Crisis en México</h4>
+                    <p><strong>Línea de la Vida:</strong> <a href="tel:8009112000">800 911 2000</a> - Atención 24/7 por salud mental</p>
+                    <a href="https://www.gob.mx/salud/articulos/linea-de-la-vida-800-911-2000" target="_blank" class="source-link">Secretaría de Salud</a>
+                    <p><strong>UAM:</strong> <a href="tel:5558024595">55 5802 4595</a> - Apoyo psicológico</p>
+                    <a href="https://uam.mx/covid19/apoyo-psicologico.html" target="_blank" class="source-link">Universidad Autónoma Metropolitana</a>
                 </div>
                 
                 <div class="resource-card">
                     <h4><i class="fas fa-hands-helping"></i>Organizaciones de Apoyo</h4>
                     <p><strong>Alianza Nacional de Enfermedades Mentales (NAMI):</strong> Ofrece defensa, educación y apoyo para personas con problemas de salud mental y sus familias.</p>
-                    <p><strong>Proyecto Discapacidad Invisible:</strong> Un proyecto educativo que ofrece recursos y grupos de apoyo, centrándose en las intersecciones de raza, clase, género y sexualidad.</p>
-                    <p><strong>The Mighty:</strong> Comunidad y recursos sobre diversas condiciones de salud.</p>
+                    <a href="https://www.nami.org" target="_blank" class="source-link">NAMI.org</a>
+                    <p><strong>Mental Health America:</strong> Recursos educativos y herramientas de evaluación.</p>
+                    <a href="https://www.mhanational.org" target="_blank" class="source-link">MHA National</a>
                 </div>
                 
                 <div class="resource-card">
                     <h4><i class="fas fa-globe"></i>Recursos Internacionales</h4>
                     <p><strong>Organización Mundial de la Salud (OMS):</strong> Información y recursos globales sobre salud mental.</p>
-                    <p><strong>Instituto Nacional de la Salud Mental (NIMH):</strong> Recursos educativos y de tratamiento.</p>
-                    <p><strong>Mental Health Europe:</strong> Red paneuropea que trabaja para promover la salud mental positiva.</p>
+                    <a href="https://www.who.int/health-topics/mental-health" target="_blank" class="source-link">OMS - Salud Mental</a>
+                    <p><strong>World Federation for Mental Health:</strong> Promueve la educación y políticas de salud mental.</p>
+                    <a href="https://wfmh.global" target="_blank" class="source-link">WFMH Global</a>
                 </div>
                 
                 <div class="resource-card">
                     <h4><i class="fas fa-user-md"></i>Autocuidado y Bienestar</h4>
-                    <p><strong>MedlinePlus:</strong> Guías sobre cómo mejorar la salud mental.</p>
-                    <p><strong>NIH Herramientas de bienestar:</strong> Estrategias para mejorar la salud emocional.</p>
                     <p><strong>Centros para el Control y Prevención de Enfermedades (CDC):</strong> Recursos sobre manejo del estrés y salud mental.</p>
+                    <a href="https://www.cdc.gov/mentalhealth" target="_blank" class="source-link">CDC - Salud Mental</a>
+                    <p><strong>NIH Herramientas de bienestar:</strong> Estrategias para mejorar la salud emocional.</p>
+                    <a href="https://www.nimh.nih.gov/health/topics" target="_blank" class="source-link">NIMH - Institutos Nacionales de Salud</a>
                 </div>
             </div>
             
@@ -781,6 +817,7 @@
                 <div>
                     <h3>Recuerda</h3>
                     <p>Buscar ayuda es una muestra de fortaleza, no de debilidad. El tratamiento adecuado puede marcar una diferencia significativa en la calidad de vida. Si está experimentando una emergencia médica, llame a los servicios de emergencia locales inmediatamente.</p>
+                    <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" class="source-link">Fuente: OMS - Trastornos Mentales</a>
                 </div>
             </div>
         </section>
@@ -835,7 +872,7 @@
                     <li><a href="#medidas">Medidas</a></li>
                     <li><a href="#recursos">Recursos</a></li>
                 </ul>
-                <p class="copyright"><strong>© 2025 SaludMental+ - Esta página es solo para fines informativos. Consulte a un profesional de la salud para diagnóstico y tratamiento +52 722 123 4567</strong></p>
+                <p class="copyright"><strong>© 2024 SaludMental+ - Esta página es solo para fines informativos. Consulte a un profesional de la salud para diagnóstico y tratamiento +52 722 123 4567</strong></p>
             </div>
         </div>
     </footer>
